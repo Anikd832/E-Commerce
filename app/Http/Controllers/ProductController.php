@@ -13,7 +13,8 @@ class ProductController extends Controller
 {
     public function index(){
         $categories=Category::all();
-        return view('dashboard.product.index',compact('categories'));
+        $products=Product::latest()->get();
+        return view('dashboard.product.index',compact('categories','products'));
     }
 
     public function productinsert(Request $request){

@@ -22,7 +22,8 @@ class FrontendController extends Controller
         // echo $product_id."<br>";
         // $categories=Category::all();
         $product= Product::find($product_id);
-        return view('frontend.productdetails',compact('product'));
+        $related_products=Product::where('category_id',$product->category_id)->where('id','!=',$product_id)->get();
+        return view('frontend.productdetails',compact('product','related_products'));
     }
     function about(){
         // $name='anik das';

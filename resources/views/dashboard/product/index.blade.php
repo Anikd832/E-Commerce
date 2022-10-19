@@ -31,35 +31,36 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered " id="message_table">
+                            <table class="table table-bordered " id="product_table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Sl No.</th>
-                                        <th scope="col">Category Name</th>
-                                        <th scope="col">Category Photo</th>
-                                        <th scope="col">Is Top Category</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Product Category</th>
+                                        <th scope="col">product_thumbnail_photo</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @forelse ($categories as $category)
+                                    @forelse ($products as $product)
                                         <tr>
                                             <td>{{$loop->index+1}}</td>
-                                            <td>{{$category->category_name}}</td>
+                                            <td>{{$product->product_name}}</td>
+                                            <td>{{App\Models\Category::find($product->category_id)->category_name}}</td>
                                             <td>
-                                                <img width="100" src="{{ asset('uploads/category_photos')}}/{{$category->category_photo}}" alt="not found">
+                                                <img width="100" src="{{ asset('uploads/product_thumbnail_photo')}}/{{$product->product_thumbnail_photo}}" alt="not found">
                                             </td>
-                                            <td>{{$category->is_top_category}}</td>
+
                                             <td>
-                                                <a href="{{url('category/edit')}}/{{$category->id}}" class="btn btn-sm btn-info">Edit</a>
-                                                <button value="{{url('category/delete')}}/{{$category->id}}" class="btn btn-sm btn-danger delete_btn">Delete</button>
+                                                <a href="" class="btn btn-sm btn-info">Edit</a>
+                                                <button value="" class="btn btn-sm btn-danger delete_btn">Delete</button>
                                             </td>
                                         </tr>
                                     @empty
                                         <tr class="text-center text-danger">
                                             <td colspan="50"><h3>No Category Abilable</h3></td>
                                         </tr>
-                                    @endforelse --}}
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -131,7 +132,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Long Description</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="product_long_description" rows="5" value="{{old('product_long_description')}}"></textarea>
+                                            <textarea id="long_description" class="form-control" name="product_long_description" rows="5" value="{{old('product_long_description')}}"></textarea>
                                             @error('product_long_description')
                                                 <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -155,7 +156,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Additional Information</label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="product_additional_information" rows="5" value="{{old('product_additional_information')}}"></textarea>
+                                            <textarea id="additional_information" class="form-control" name="product_additional_information" rows="5" value="{{old('product_additional_information')}}"></textarea>
                                             @error('product_additional_information')
                                                 <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -228,7 +229,21 @@
                 }
                 })
             });
-            // $('#message_table').DataTable();
+            // $('#product_table').DataTable();
+            // $('#summernote').summernote();
+            $('#long_description,#additional_information').summernote({
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
         });
     </script>
 
