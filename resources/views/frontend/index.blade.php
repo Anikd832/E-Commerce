@@ -284,7 +284,10 @@
                             @foreach ($products as $product )
                                 <div class="grid">
                                     <div class="product-pic">
-                                        <img src="{{asset('uploads/product_thumbnail_photo')}}/{{$product->product_thumbnail_photo}}" alt="not found">
+                                        <a class="" href="{{url('product/details')}}/{{$product->id}}">
+                                            <img src="{{asset('uploads/product_thumbnail_photo')}}/{{$product->product_thumbnail_photo}}" alt="not found">
+                                        </a>
+
                                         @if ($product->product_regular_price > $product->product_discounted_price )
                                             <span class="theme-badge-2">{{ round(100-(($product->product_discounted_price*100)/$product->product_regular_price)) }}</span>
                                         @endif
@@ -378,213 +381,33 @@
                                 </div>
                             </div>
                             <div class="vertical_slider_4item" data-slick='{"dots": false}'>
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_1.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
+                                @foreach ($products as $product)
+                                    <div class="slider_item">
+                                        <div class="small_product_layout">
+                                            <a class="item_image" href="{{url('product/details')}}/{{$product->id}}">
+                                                <img src="{{asset('uploads/product_thumbnail_photo')}}/{{$product->product_thumbnail_photo}}" alt="image_not_found">
+                                            </a>
+                                            <div class="item_content">
+                                                <h3 class="item_title">
+                                                    <a href="{{url('product/details')}}/{{$product->id}}">{{$product->product_name}}</a>
+                                                </h3>
+                                                <ul class="rating_star ul_li">
+                                                    <li>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    </li>
+                                                </ul>
+                                                <div class="item_price">
+                                                    <span>${{$product->product_discounted_price}}</span>
+                                                    <del>${{$product->product_regular_price}}</del>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_2.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_3.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_4.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_1.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_2.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_3.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider_item">
-                                    <div class="small_product_layout">
-                                        <a class="item_image" href="shop_details.html">
-                                            <img src="{{asset('frontend_assets')}}/images/latest_product/latest_product_4.png" alt="image_not_found">
-                                        </a>
-                                        <div class="item_content">
-                                            <h3 class="item_title">
-                                                <a href="shop_details.html">Product Sample</a>
-                                            </h3>
-                                            <ul class="rating_star ul_li">
-                                                <li>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                </li>
-                                            </ul>
-                                            <div class="item_price">
-                                                <span>$690.99</span>
-                                                <del>$720.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="widget product-add">

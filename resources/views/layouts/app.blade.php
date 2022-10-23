@@ -786,6 +786,12 @@
 						<span class="nav-text">Messages</span>
 					    </a>
 					</li>
+                    <li>
+                        <a href="{{url('banner/index')}}" class="ai-icon" aria-expanded="false">
+                            <i class="fa fa-picture-o"></i>
+                            <span class="nav-text">Banner or Advertise</span>
+                        </a>
+                    </li>
                     <li><a href="{{url('product/brand')}}" class="ai-icon" aria-expanded="false">
                         <i class="fa fa-tags"></i>
 						<span class="nav-text">Product Brand</span>

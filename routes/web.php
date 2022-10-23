@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -68,3 +69,7 @@ Route::get('/product/brand/delete', [ProductBrandController::class, 'productbran
 
 Route::get('/product/index', [ProductController::class, 'index']);
 Route::post('/product/index/insert', [ProductController::class, 'productinsert']);
+
+
+Route::get('banner/index',[BannerController::class, 'banner']);
+Route::get('banner/insert',[BannerController::class, 'insert']);
