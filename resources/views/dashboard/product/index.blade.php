@@ -229,7 +229,7 @@
                 }
                 })
             });
-            // $('#product_table').DataTable();
+            $('#product_table').DataTable();
             // $('#summernote').summernote();
             $('#long_description,#additional_information').summernote({
                 tabsize: 2,
