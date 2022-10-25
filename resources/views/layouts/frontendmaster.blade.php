@@ -106,13 +106,9 @@
                                     <div class="select_option mb-0 clearfix">
                                         <select>
                                             <option data-display="All Categories">Select A Category</option>
-                                            <option value="1">New Arrival Products</option>
-                                            <option value="2">Most Popular Products</option>
-                                            <option value="3">Deals of the day</option>
-                                            <option value="4">Mobile Accessories</option>
-                                            <option value="5">Computer Accessories</option>
-                                            <option value="6">Consumer Electronics</option>
-                                            <option value="7">Automobiles & Motorcycles</option>
+                                            @foreach (App\Models\Category::all() as $category )
+                                            <option value=""><a href="{{url('category/wise/product')}}/{{$category->id}}">{{$category->category_name}}</a></option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form_item">
@@ -160,8 +156,8 @@
                                     <div class="card card-body">
                                         <ul class="allcategories_list ul_li_block">
                                             {{-- @foreach ($categories as $category ) --}}
-                                            @foreach (App\models\Category::all() as $category )
-                                                <li><a href="shop_grid.html"><i class="fas fa-chevron-right"></i>{{$category->category_name}}</a></li>
+                                            @foreach (App\Models\Category::all() as $category )
+                                                <li><a href="{{url('category/wise/product')}}/{{$category->id}}"><i class="fas fa-chevron-right"></i>{{$category->category_name}}</a></li>
                                             @endforeach
 
                                         </ul>

@@ -34,6 +34,10 @@ class FrontendController extends Controller
 
     }
 
+    function categorywiseproduct($category_id){
+        $products= Product::where('category_id', $category_id)->get();
+        return view('frontend.categoriesproduct',compact('products'));
+    }
     function history(){
         return view('history');
     }

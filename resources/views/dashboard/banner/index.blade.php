@@ -6,7 +6,7 @@
         <div class="page-titles">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(0)">Messages</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Banner or Advertise</a></li>
             </ol>
         </div>
         <div class="row justify-content-center">

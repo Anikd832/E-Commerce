@@ -354,7 +354,7 @@
                             @foreach ($top_categories as $top_category )
                                 <div class="slider_item">
                                     <div class="category_boxed">
-                                        <a href="#!">
+                                        <a href="{{url('category/wise/product')}}/{{$top_category->id}}">
                                                 <span class="item_image">
                                                     <img src="{{asset('uploads/category_photos')}}/{{$top_category->category_photo}}" alt="image_not_found">
                                                 </span>
