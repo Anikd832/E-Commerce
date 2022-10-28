@@ -38,7 +38,7 @@ class FrontendController extends Controller
         // $products= Product::where('category_id', $category_id)->get();
         // $products= Product::where('category_id', $category_id)->simplepaginate(1);
         $categories=Category::all();
-        $products= Product::latest()->where('category_id', $category_id)->paginate(1);
+        $products= Product::latest()->where('category_id', $category_id)->paginate(10);
         return view('frontend.categoriesproduct',compact('products','categories'));
     }
     function history(){
