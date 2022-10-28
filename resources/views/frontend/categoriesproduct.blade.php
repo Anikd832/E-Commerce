@@ -171,33 +171,12 @@
                         <div class="sb_widget sb_category">
                             <h3 class="sb_widget_title">Categories</h3>
                             <ul class="sb_category_list ul_li_block">
-                                <li>
-                                    <a href="#!">Official electronic <span></span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">Dell <span>(1375)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">Asus <span>(1687)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">HP <span>(1036)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">Acer <span>(202)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">Aivta <span>(525)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">HP <span>(135)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!">Apple <span>(298)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#!"><span>All Categories</span></a>
-                                </li>
+                                @foreach ($categories as $category )
+                                    <li>
+                                        <a href="{{url('category/wise/product')}}/{{$category->id}}">{{$category->category_name}} <span>({{App\Models\Product::where('category_id', $category->id)->count()}})</span></a>
+
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
 
@@ -278,7 +257,7 @@
                             </div>
 
                             <div class="col col-md-4">
-                                <div class="result_text">Showing 1-12 of 30 relults</div>
+                                <div class="result_text">Showing {{  $products->currentPage()*10-9 }}-{{  $products->currentPage()*10 }} of {{$products->count()}} results</div>
                             </div>
                         </div>
                     </div>
@@ -497,11 +476,13 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                        {{-- @dump($products->currentPage()) --}}
+                                    {{-- {{$products->links()}} --}}
                                 </div>
                             </div>
-
                             <div class="pagination_wrap">
-                                <ul class="pagination_nav">
+                                {!! $products->links('frontend.custompagination')!!}
+                                {{-- <ul class="pagination_nav">
                                     <li class="active"><a href="#!">01</a></li>
                                     <li><a href="#!">02</a></li>
                                     <li><a href="#!">03</a></li>
@@ -511,7 +492,8 @@
                                     <li class="next_btn">
                                         <a href="#!"><i class="fal fa-angle-right"></i></a>
                                     </li>
-                                </ul>
+                                </ul> --}}
+
                             </div>
                         </div>
 
