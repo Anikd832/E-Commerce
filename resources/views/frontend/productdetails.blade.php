@@ -227,8 +227,16 @@
                         <div class="col-lg-6">
                             <div class="product_details_content">
                                 <h2 class="item_title">{{$product->product_name}}</h2>
-                                <div class=" md-3 badge bg-info">
-                                    <h6 class="text white">Category:{{App\Models\Category::find($product->category_id)->category_name}}</h6>
+                                <div class=" md-3 badge bg-success">
+                                    <h6 class="text-white">Category:{{App\Models\Category::find($product->category_id)->category_name}}</h6>
+                                </div>
+                                {{-- <div class=" md-3 badge bg-info">
+                                    <h6 class="text white">Stock:{{$product->product_quantity}}</h6>
+                                </div> --}}
+                                <br>
+                                <br>
+                                <div class="pt-3 badge bg-info">
+                                    <p class="text-dark">Stock:{{$product->product_quantity}}</p>
                                 </div>
                                 <p>{{$product->product_short_description}}</p>
                                 <div class="item_review">
@@ -249,25 +257,25 @@
                                 <hr>
 
 
-
+                                <form action="" method="POST">
                                     <div class="quantity_wrap">
                                         <div class="quantity_input">
                                             <button type="button" class="input_number_decrement">
                                                 <i class="fal fa-minus"></i>
                                             </button>
-                                            <input class="input_number" type="text" value="1">
+                                            <input class="input_number" type="number" value="1" max="{{$product->product_quantity}}">
                                             <button type="button" class="input_number_increment">
                                                 <i class="fal fa-plus"></i>
                                             </button>
                                         </div>
-                                        <div class="total_price">Total: $620,99</div>
+                                        <div class="total_price">Total:৳{{$product->product_discounted_price}}</div>
                                     </div>
 
                                     <ul class="default_btns_group ul_li">
-                                        <li><a class="btn btn_primary addtocart_btn" href="#!">Add To Cart</a></li>
+                                        <li><button class="btn btn_primary addtocart_btn" href="#!">Add To Cart</button></li>
                                     </ul>
-                                </div>
-                            </form>
+
+                                </form>
                         </div>
                     </div>
 
