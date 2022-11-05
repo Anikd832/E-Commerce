@@ -441,7 +441,9 @@
                                     @foreach ($related_products as $product )
                                         <div class="grid">
                                             <div class="product-pic">
-                                                <img src="{{ asset('uploads/product_thumbnail_photo') }}/{{$product->product_thumbnail_photo}}" alt="img not found">
+                                                <a href="{{url('product/details')}}/{{$product->id}}" >
+                                                    <img src="{{ asset('uploads/product_thumbnail_photo') }}/{{$product->product_thumbnail_photo}}" alt="img not found">
+                                                </a>
                                                 @if ($product->product_regular_price > $product->product_discounted_price)
                                                     <span class="theme-badge-2">{{round(100-($product->product_discounted_price*100)/$product->product_regular_price)}}</span>
                                                 @endif

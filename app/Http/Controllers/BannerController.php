@@ -10,6 +10,6 @@ class BannerController extends Controller
         return view('dashboard.banner.index');
     }
     public function insert(Request $request){
-
+        
     }
 }

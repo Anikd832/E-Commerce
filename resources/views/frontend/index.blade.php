@@ -162,7 +162,7 @@
                     <div class="main_slider" data-slick='{"arrows": false}'>
                         <div class="slider_item set-bg-image" data-background="{{asset('frontend_assets')}}/images/slider/slide-2.jpg">
                             <div class="slider_content">
-                                <h3 class="small_title" data-animation="fadeInUp2" data-delay=".2s">Clothing</h3>
+                                <h3 class="small_title" data-animation="fadeInUp2" data-delay=".2s">Category</h3>
                                 <h4 class="big_title" data-animation="fadeInUp2" data-delay=".4s">Smart blood  <span>Pressure monitor</span></h4>
                                 <p data-animation="fadeInUp2" data-delay=".6s">The best gadgets collection 2021</p>
                                 <div class="item_price" data-animation="fadeInUp2" data-delay=".6s">

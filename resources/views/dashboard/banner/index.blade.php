@@ -35,10 +35,13 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Sl No.</th>
-                                        <th scope="col">Sender Name</th>
-                                        <th scope="col">Sender Email</th>
-                                        <th scope="col">Sender Message</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Product Category</th>
+                                        <th scope="col">Product Banner Photo</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Product Work</th>
+                                        <th scope="col">Product Short Breff</th>
+                                        <th scope="col">Product Reagular Price</th>
+                                        <th scope="col">Product Discount Price</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -82,34 +85,53 @@
                                         {{session('brand_add_suc')}}
                                     </div>
                                 @endif
-                                <form action="{{url('banner/insert')}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{url('')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Product Brand Name</label>
+                                        <label class="col-sm-4 col-form-label">Product Category</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Brand Name" name="product_brand_name" value="">
+                                            <input type="text" class="form-control" placeholder="Product Category" name="" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Product Brand logo</label>
+                                        <label class="col-sm-4 col-form-label">Product Banner Photo</label>
                                         <div class="col-sm-8">
-                                            <input type="file" class="form-control" name="product_brand_logo" value="{{}}">
+                                            <input type="file" class="form-control" name="" value="{{}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-4">Is Top Product Brand</div>
+                                        <div class="col-sm-4">Product Name</div>
                                         <div class="col-sm-8">
-                                            <div class="form-check">
-                                                <input id="check_box_top" class="form-check-input" type="checkbox" name="is_top_product_brand">
-                                                <label for="check_box_top" class="form-check-label">
-                                                    Yes
-                                                </label>
-                                            </div>
+                                                <input type="text" class="form-control" placeholder="Product Name" name="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Product Work</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" placeholder="Product Work" name="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Product Short Breff</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" placeholder="Product Short Breff" name="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Product Regular Price</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" placeholder="Product Regular Price" name="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">Product Discounted price</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control" placeholder="Product Discounted price" name="" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-sm btn-primary">Add Product Brand</button>
+                                            <button type="submit" class="btn btn-sm btn-primary">Add Product Banner</button>
                                         </div>
                                     </div>
                                 </form>
