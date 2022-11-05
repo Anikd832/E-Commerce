@@ -90,43 +90,43 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Category</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Category" name="" value="">
+                                            <input type="text" class="form-control" placeholder="Product Category" name="product_category" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Banner Photo</label>
                                         <div class="col-sm-8">
-                                            <input type="file" class="form-control" name="" value="{{}}">
+                                            <input type="file" class="form-control" name="product_banner_photo" value="{{}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-4">Product Name</div>
                                         <div class="col-sm-8">
-                                                <input type="text" class="form-control" placeholder="Product Name" name="">
+                                                <input type="text" class="form-control" placeholder="Product Name" name="product_name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Work</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Work" name="" value="">
+                                            <input type="text" class="form-control" placeholder="Product Work" name="product_work" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Short Breff</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Short Breff" name="" value="">
+                                            <input type="text" class="form-control" placeholder="Product Short Breff" name="Product_short_breff" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Regular Price</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" placeholder="Product Regular Price" name="" value="">
+                                            <input type="number" class="form-control" placeholder="Product Regular Price" name="product_regular_price" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Discounted price</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" placeholder="Product Discounted price" name="" value="">
+                                            <input type="number" class="form-control" placeholder="Product Discounted Price" name="product_discounted_price" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
