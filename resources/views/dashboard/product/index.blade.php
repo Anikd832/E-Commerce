@@ -113,7 +113,7 @@
                                                 @foreach ($categories as $category )
                                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
-                                            </optgroup>
+                                            {{-- </optgroup> --}}
                                             </select>
                                             @error('category_id')
                                                 <span class="text-danger">{{$message}}</span>

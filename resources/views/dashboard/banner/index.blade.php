@@ -85,18 +85,24 @@
                                         {{session('brand_add_suc')}}
                                     </div>
                                 @endif
-                                <form action="{{url('')}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{url('banner/insert')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Category</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Category" name="product_category" value="">
+                                            {{-- <input type="text" class="form-control" placeholder="Product Category" name="category_id" value=""> --}}
+                                            <select name="category_id" class="form-control">
+                                                <option value="category_id">--Select A Category--</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Banner Photo</label>
                                         <div class="col-sm-8">
-                                            <input type="file" class="form-control" name="product_banner_photo" value="{{}}">
+                                            <input type="file" class="form-control" name="product_banner_photo" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -108,7 +114,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Work</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Work" name="product_work" value="">
+                                            <input type="text" class="form-control" placeholder="Product Work" name="product_work" value="{{old('product_work')}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">

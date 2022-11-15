@@ -73,4 +73,4 @@ Route::post('/product/index/insert', [ProductController::class, 'productinsert']
 
 
 Route::get('banner/index',[BannerController::class, 'banner']);
-Route::get('banner/insert',[BannerController::class, 'insert']);
+Route::post('banner/insert',[BannerController::class, 'insert']);
