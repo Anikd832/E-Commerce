@@ -10,7 +10,8 @@ class BannerController extends Controller
 {
     public function banner(){
         $categories=Category::all();
-        return view('dashboard.banner.index',compact('categories'));
+        $banners=Banner::all();
+        return view('dashboard.banner.index',compact('categories','banners'));
     }
     public function insert(Request $request){
         $request->validate([
@@ -26,6 +27,6 @@ class BannerController extends Controller
             'product_discounted_price'=>$request->product_discounted_price,
             'created_at'=>Carbon::now(),
         ]);
-        return back()->with('','');
+        return back()->with('banner_add_s','Banner Added Successfuly!!');
     }
 }

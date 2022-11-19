@@ -46,7 +46,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @forelse($contacts as $contact )
+                                    @forelse($contacts as $contact )
                                     <tr class="">
                                         <td scope="row">{{$loop->index+1}}</td>
                                         <td>{{$contact->name}}</td>
@@ -64,7 +64,7 @@
                                     <tr class="text-center text-danger">
                                         <td colspan="50"> <h3>Nothing to show</h3> </td>
                                     </tr>
-                                    @endforelse --}}
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
