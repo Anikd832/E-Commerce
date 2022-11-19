@@ -10,12 +10,15 @@ class BannerController extends Controller
 {
     public function banner(){
         $categories=Category::all();
-        $banners=Banner::all();
-        return view('dashboard.banner.index',compact('categories','banners'));
+        // $banners=Banner::all();
+        return view('dashboard.banner.index',compact('categories'));
     }
     public function insert(Request $request){
         $request->validate([
            'product_category'=>'required',
+           'product_banner_photo'=>'required',
+           'product_name'=>'required',
+           'product_regular_price'=>'required',
         ]);
         Banner::insert([
             'category_id'=>$request->category_id,
