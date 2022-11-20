@@ -46,7 +46,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @forelse($banners as $banner )
+                                    @forelse($banners as $banner )
                                     <tr class="">
                                         <td scope="row">{{$loop->index+1}}</td>
                                         <td>{{$banner->product_category}}</td>
@@ -57,17 +57,16 @@
                                         <td>{{$banner->product_reagular_price}}</td>
                                         <td>{{$banner->product_discount_price}}</td>
                                         <td>
-                                        <button value="{{url('delete/message')}}/{{$banner->id}}" class="btn btn-sm btn-danger delete_btn">Delete</button>
-                                            @if ($contact->status=='unread')
-                                                <a href="{{url('read/message')}}/{{$banner->id}}"class="btn btn-sm btn-info">Read</a>
-                                            @endif
+                                        <button value="{{url('')}}/{{$banner->id}}" class="btn btn-sm btn-danger delete_btn">Delete</button>
+                                        <a href="{{url('')}}/{{$banner->id}}"class="btn btn-sm btn-info">Read</a>
+
                                         </td>
                                     </tr>
                                     @empty
                                     <tr class="text-center text-danger">
                                         <td colspan="50"> <h3>Nothing to show</h3> </td>
                                     </tr>
-                                    @endforelse --}}
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
