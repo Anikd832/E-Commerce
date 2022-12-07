@@ -96,7 +96,7 @@
                                             <select name="category_id" class="form-control">
                                                 <option value="category_id">--Select A Category--</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
