@@ -15,12 +15,14 @@ class BannerController extends Controller
         return view('dashboard.banner.index',compact('categories','banners'));
     }
     public function insert(Request $request){
-        // $request->validate([
-        //    'product_category'=>'required',
-        //    'product_banner_photo'=>'required',
-        //    'product_name'=>'required',
-        //    'product_regular_price'=>'required',
-        // ]);
+        $request->validate([
+           'category_id'=>'required',
+           'product_banner_photo'=>'required',
+           'product_name'=>'required',
+           'product_regular_price'=>'required',
+        ],[
+            'product_category.required'=>'The product category field is required.'
+        ]);
         $banner_photo=$request->file('product_banner_photo');
         $new_name=Str::slug($request->product_name)."-".$request->id.".".$banner_photo->getClientOriginalExtension();
         $upload_link=base_path('public/uploads/banner_photo/'.$new_name);

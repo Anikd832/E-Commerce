@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 //Frontend Route
+
+// Route::get('/',[FrontendController::class,'index'])->name('anik');
 Route::get('/',[FrontendController::class,'index']);
 Route::get('product/details/{product_id}',[FrontendController::class,'productdetails']);
 Route::get('category/wise/product/{category_id}',[FrontendController::class,'categorywiseproduct']);

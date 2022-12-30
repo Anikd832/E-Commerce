@@ -173,6 +173,7 @@
                                         <i class="fal fa-times"></i>
                                     </button>
                                     <ul class="main_menu_list ul_li">
+                                        {{-- <li><a class="nav-link" href="{{route('anik')}}">Home</a></li> --}}
                                         <li><a class="nav-link" href="{{url('/')}}">Home</a></li>
                                         <li><a class="nav-link" href="{{url('about')}}">About </a></li>
                                         <li><a class="nav-link" href="#">Shop</a></li>
