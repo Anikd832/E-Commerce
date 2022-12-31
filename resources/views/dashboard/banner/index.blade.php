@@ -143,7 +143,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Short Breff</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Short Breff" name="Product_short_breff" value="">
+                                            <input type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{old('product_short_breff')}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">

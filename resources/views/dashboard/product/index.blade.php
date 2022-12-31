@@ -58,7 +58,7 @@
                                         </tr>
                                     @empty
                                         <tr class="text-center text-danger">
-                                            <td colspan="50"><h3>No Category Abilable</h3></td>
+                                            <td colspan="50"><h3>No Product Abilable</h3></td>
                                         </tr>
                                     @endforelse
                                 </tbody>
