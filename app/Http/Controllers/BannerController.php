@@ -15,12 +15,6 @@ class BannerController extends Controller
         return view('dashboard.banner.index',compact('categories','banners'));
     }
     public function insert(Request $request){
-        // if(){
-
-        // }
-        // else{
-
-        // }
         $request->validate([
            'category_id'=>'required',
            'product_banner_photo'=>'required',
@@ -29,6 +23,16 @@ class BannerController extends Controller
         ],[
             'product_category.required'=>'The product category field is required.'
         ]);
+        if(!$request->product_discount_price){
+            $product_discounted_price= $request->product_regular_price;
+        }
+        if($request->product_discount_price > $request->product_regular_price){
+            return back()->with('discount_e','Product Discount Price Can Not Over Then Regular Price');
+        }
+        else{
+            $product_discounted_price=$request->product_discounted_price;
+        }
+
         $banner_photo=$request->file('product_banner_photo');
         $new_name=Str::slug($request->product_name)."-".$request->id.".".$banner_photo->getClientOriginalExtension();
         $upload_link=base_path('public/uploads/banner_photos/'.$new_name);
@@ -43,7 +47,7 @@ class BannerController extends Controller
             'product_work'=>$request->product_work,
             'product_short_breff'=>$request->product_short_breff,
             'product_regular_price'=>$request->product_regular_price,
-            'product_discounted_price'=>$request->product_discounted_price,
+            'product_discounted_price'=>$product_discounted_price,
             'created_at'=>Carbon::now(),
         ]);
         return back()->with('banner_add_s','Banner Added Successfuly!!');

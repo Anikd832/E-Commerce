@@ -49,8 +49,10 @@
                                     @forelse($banners as $banner )
                                     <tr class="">
                                         <td scope="row">{{$loop->index+1}}</td>
-                                        <td>{{$banner->product_category}}</td>
-                                        <td>{{$banner->product_banner_photo}}</td>
+                                        <td>{{App\Models\Category::find($banner->category_id)->category_name}}</td>
+                                        <td>
+                                            <img width="100" src="{{asset('uploas/banner_photos')}}/{{$banner->product_banner_photo}}" alt="not found">
+                                        </td>
                                         <td>{{$banner->product_name}}</td>
                                         <td>{{$banner->product_work}}</td>
                                         <td>{{$banner->product_short_breff}}</td>
@@ -94,9 +96,9 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                @if (session('product_discount_e'))
+                                @if (session('discount_e'))
                                     <div class="alert alert-danger">
-                                        {{session('product_discount_e')}}
+                                        {{session('discount_e')}}
                                     </div>
                                 @endif
                                 <form action="{{url('banner/insert')}}" method="POST" enctype="multipart/form-data">
@@ -143,7 +145,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Short Breff</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{old('product_short_breff')}}">
+                                            <textarea  id="product_short_breff" type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{old('product_short_breff')}}"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -203,6 +205,19 @@
                 })
             });
             $('#message_table').DataTable();
+             $('#product_short_breff').summernote({
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
         });
     </script>
 @endsection
