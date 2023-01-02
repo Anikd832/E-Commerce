@@ -52,4 +52,8 @@ class BannerController extends Controller
         ]);
         return back()->with('banner_add_s','Banner Added Successfuly!!');
     }
+    public function delete($id){
+        Banner::find($id)->delete();
+        return back();
+    }
 }
