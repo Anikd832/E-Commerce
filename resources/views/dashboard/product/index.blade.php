@@ -14,10 +14,10 @@
                 <div class="card ">
                     <div class="card-header d-inline">
                         All Product
-                        {{-- <button class="btn btn-sm btn-primary" >
-                            <span class="badge text-white bg-primary">Total:{{$categories->count()}}</span>
+                        <button class="btn btn-sm btn-primary" >
+                            <span class="badge text-white bg-primary">Total:{{$products->count()}}</span>
                         </button>
-                        @if (!$categories->where('is_top_category','yes')->count()==0)
+                        {{-- @if (!$categories->where('is_top_category','yes')->count()==0)
                             <button class="btn btn-sm btn-info" >
                                 <span class="badge text-white bg-info">Top Category:{{$categories->where('is_top_category','yes')->count()}}</span>
                             </button>

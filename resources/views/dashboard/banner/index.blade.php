@@ -14,10 +14,10 @@
                 <div class="card ">
                     <div class="card-header d-inline">
                         All Banner & Ads
-                        {{-- <button class="btn btn-sm btn-primary" >
-                            <span class="badge text-white bg-primary">Total:{{$contacts->count()}}</span>
+                        <button class="btn btn-sm btn-primary" >
+                            <span class="badge text-white bg-primary">Total:{{$banners->count()}}</span>
                         </button>
-                        @if (!$contacts->where('status','read')->count()==0)
+                        {{-- @if (!$contacts->where('status','read')->count()==0)
                             <button class="btn btn-sm btn-info" >
                                 <span class="badge text-white bg-info">Readed:{{$contacts->where('status','read')->count()}}</span>
                             </button>
@@ -51,13 +51,13 @@
                                         <td scope="row">{{$loop->index+1}}</td>
                                         <td>{{App\Models\Category::find($banner->category_id)->category_name}}</td>
                                         <td>
-                                            <img width="100" src="{{asset('uploas/banner_photos')}}/{{$banner->product_banner_photo}}" alt="not found">
+                                            <img width="100" src="{{asset('uploads/banner_photos')}}/{{$banner->product_banner_photo}}" alt="not found">
                                         </td>
                                         <td>{{$banner->product_name}}</td>
                                         <td>{{$banner->product_work}}</td>
                                         <td>{{$banner->product_short_breff}}</td>
-                                        <td>{{$banner->product_reagular_price}}</td>
-                                        <td>{{$banner->product_discount_price}}</td>
+                                        <td>{{$banner->product_regular_price}}</td>
+                                        <td>{{$banner->product_discounted_price}}</td>
                                         <td>
                                         <button value="{{url('')}}/{{$banner->id}}" class="btn btn-sm btn-danger delete_btn">Delete</button>
                                         <a href="{{url('')}}/{{$banner->id}}"class="btn btn-sm btn-info">Read</a>

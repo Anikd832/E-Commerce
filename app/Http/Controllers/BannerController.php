@@ -23,10 +23,10 @@ class BannerController extends Controller
         ],[
             'product_category.required'=>'The product category field is required.'
         ]);
-        if(!$request->product_discount_price){
+        if(!$request->product_discounted_price){
             $product_discounted_price= $request->product_regular_price;
         }
-        if($request->product_discount_price > $request->product_regular_price){
+        if($request->product_discounted_price > $request->product_regular_price){
             return back()->with('discount_e','Product Discount Price Can Not Over Then Regular Price');
         }
         else{
@@ -34,7 +34,7 @@ class BannerController extends Controller
         }
 
         $banner_photo=$request->file('product_banner_photo');
-        $new_name=Str::slug($request->product_name)."-".$request->id.".".$banner_photo->getClientOriginalExtension();
+        $new_name=Str::slug($request->product_name)."-".$request->category_id.".".$banner_photo->getClientOriginalExtension();
         $upload_link=base_path('public/uploads/banner_photos/'.$new_name);
         Image::make($banner_photo)->resize(844,517)->save($upload_link);
         // echo $new_name;
