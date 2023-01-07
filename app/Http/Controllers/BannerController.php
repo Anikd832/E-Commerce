@@ -52,10 +52,16 @@ class BannerController extends Controller
         ]);
         return back()->with('banner_add_s','Banner Added Successfuly!!');
     }
-    public function edit(Request $request){
+    public function edit($id ){
+        return view('dashboard.banner.edit');
+    }
+    public function update(Request $request){
         $request;
     }
     public function delete($id){
+        $d_banner_photo=Banner::find($id)->product_banner_photo;
+        $delete_link=base_path('public/uploads/banner_photos/'.$d_banner_photo);
+        unlink($delete_link);
         Banner::find($id)->delete();
         return back();
     }

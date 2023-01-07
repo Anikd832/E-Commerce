@@ -160,19 +160,27 @@
             <div class="row">
                 <div class="col-lg-9 offset-lg-3">
                     <div class="main_slider" data-slick='{"arrows": false}'>
-                        <div class="slider_item set-bg-image" data-background="{{asset('frontend_assets')}}/images/slider/slide-2.jpg">
-                            <div class="slider_content">
-                                <h3 class="small_title" data-animation="fadeInUp2" data-delay=".2s">Category</h3>
-                                <h4 class="big_title" data-animation="fadeInUp2" data-delay=".4s">Smart blood  <span>Pressure monitor</span></h4>
-                                <p data-animation="fadeInUp2" data-delay=".6s">The best gadgets collection 2021</p>
-                                <div class="item_price" data-animation="fadeInUp2" data-delay=".6s">
-                                    <del>$430.00</del>
-                                    <span class="sale_price">$350.00</span>
+                        @forelse ($bannaers as $bannaer )
+                            <div class="slider_item set-bg-image" data-background="{{asset('uploads/banners_photos')}}/{{$bannaer->product_banner_photo}}">
+                                <div class="slider_content">
+                                    <h3 class="small_title" data-animation="fadeInUp2" data-delay=".2s">{{App\Models\Category::find($bannaer->category_id)->category_name}}</h3>
+                                    <h4 class="big_title" data-animation="fadeInUp2" data-delay=".4s">{{$bannaer->product_name}}  <span>{{$bannaer->product_work}}</span></h4>
+                                    <p data-animation="fadeInUp2" data-delay=".6s">{{$bannaer->product_short_breff}}</p>
+                                    <div class="item_price" data-animation="fadeInUp2" data-delay=".6s">
+                                        @if ($bannaer->product_regular_price)
+                                            <del>{{$bannaer->product_regular_price > $bannaer->product_discounted_price}}</del>
+                                        @endif
+                                        <span class="sale_price">{{$bannaer->product_discounted_price}}</span>
+                                    </div>
+                                    <a class="btn btn_primary" href="{{url('category/wise/product')}}/{{$bannaer->category_id}}" data-animation="fadeInUp2" data-delay=".8s">Start Buying</a>
                                 </div>
-                                <a class="btn btn_primary" href="shop_details.html" data-animation="fadeInUp2" data-delay=".8s">Start Buying</a>
                             </div>
-                        </div>
-                        <div class="slider_item set-bg-image" data-background="{{asset('frontend_assets')}}/images/slider/slide-3.jpg">
+                        @empty
+                            <div class="text-center text-danger">
+                                <h2>Nothing to show</h2>
+                            </div>
+                        @endforelse
+                        {{-- <div class="slider_item set-bg-image" data-background="{{asset('frontend_assets')}}/images/slider/slide-3.jpg">
                             <div class="slider_content">
                                 <h3 class="small_title" data-animation="fadeInUp2" data-delay=".2s">Clothing</h3>
                                 <h4 class="big_title" data-animation="fadeInUp2" data-delay=".4s">Smart blood  <span>Pressure monitor</span></h4>
@@ -195,7 +203,7 @@
                                 </div>
                                 <a class="btn btn_primary" href="shop_details.html" data-animation="fadeInUp2" data-delay=".8s">Start Buying</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

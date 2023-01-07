@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Product;
@@ -16,7 +17,8 @@ class FrontendController extends Controller
         $top_categories=Category::Where('is_top_category','yes')->get();
         $productbrands=ProductBrand::orderby('is_top_product_brand','desc')->get();
         $products=Product::latest()->limit(6)->get();
-        return view('frontend.index',compact('top_categories','productbrands','products'));
+        $bannaers=Banner::all();
+        return view('frontend.index',compact('top_categories','productbrands','products','bannaers'));
     }
     function productdetails($product_id){
         // echo $product_id."<br>";
