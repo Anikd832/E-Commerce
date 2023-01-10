@@ -868,6 +868,7 @@
 	<script src="{{asset('dashboard_assets')}}/vendor/chart.js/Chart.bundle.min.js"></script>
     <script src="{{asset('dashboard_assets')}}/js/custom.min.js"></script>
 	<script src="{{asset('dashboard_assets')}}/js/deznav-init.js"></script>
+	<script src="{{asset('dashboard_assets')}}/js/jquery-3.5.1.min.js"></script>
 	<script src="{{asset('dashboard_assets')}}/vendor/owl-carousel/owl.carousel.js"></script>
 
 	<!-- Chart piety plugin files -->
