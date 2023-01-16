@@ -21,12 +21,12 @@
                     <div class="card-body">
                         <div class="table">
                             <div class="basic-form">
-                                @if (session('brand_add_suc'))
+                                @if (session('brand_up_suc'))
                                     <div class="alert alert-success">
                                         {{session('brand_add_suc')}}
                                     </div>
                                 @endif
-                                @if ($errors->any())
+                                {{-- @if ($errors->any())
                                     <div class="alert alert-danger">
                                         @foreach ($errors->all() as $error)
                                             <li>{{$error}}</li>
@@ -37,7 +37,7 @@
                                     <div class="alert alert-danger">
                                         {{session('discount_e')}}
                                     </div>
-                                @endif
+                                @endif --}}
                                 <form action="{{url('banner/insert')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">

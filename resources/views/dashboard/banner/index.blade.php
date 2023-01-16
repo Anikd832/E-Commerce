@@ -60,7 +60,7 @@
                                         <td>{{$banner->product_discounted_price}}</td>
                                         <td>
                                         <button value="{{url('banner/delete')}}/{{$banner->id}}" class="btn btn-sm btn-danger delete_btn">Delete</button>
-                                        <a href="{{url('banner/edit')}}/{{$banner->id}}"class="btn btn-sm btn-info">Read</a>
+                                        <a href="{{url('banner/edit')}}/{{$banner->id}}"class="btn btn-sm btn-info">Edit</a>
 
                                         </td>
                                     </tr>
