@@ -57,6 +57,34 @@ class BannerController extends Controller
     }
     public function update(Request $request){
         $request;
+        if(!$request->product_discounted_price){
+            $product_discounted_price= $request->product_regular_price;
+        }
+        if($request->product_discounted_price > $request->product_regular_price){
+            return back()->with('discount_e','Product Discount Price Can Not Over Then Regular Price');
+        }
+        else{
+            $product_discounted_price=$request->product_discounted_price;
+        }
+
+        $banner_photo=$request->file('product_banner_photo');
+        $new_name=Str::slug($request->product_name)."-".$request->category_id.".".$banner_photo->getClientOriginalExtension();
+        $upload_link=base_path('public/uploads/banner_photos/'.$new_name);
+        Image::make($banner_photo)->resize(844,517)->save($upload_link);
+        // echo $new_name;
+        // echo $upload_link;
+        // return $request;
+        Banner::insert([
+            'category_id'=>$request->category_id,
+            'product_banner_photo'=>$new_name,
+            'product_name'=>$request->product_name,
+            'product_work'=>$request->product_work,
+            'product_short_breff'=>$request->product_short_breff,
+            'product_regular_price'=>$request->product_regular_price,
+            'product_discounted_price'=>$product_discounted_price,
+            'created_at'=>Carbon::now(),
+        ]);
+        return back()->with('banner_add_s','Banner Added Successfuly!!');
     }
     public function delete($id){
         $d_banner_photo=Banner::find($id)->product_banner_photo;

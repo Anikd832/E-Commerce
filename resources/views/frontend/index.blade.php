@@ -161,16 +161,16 @@
                 <div class="col-lg-9 offset-lg-3">
                     <div class="main_slider" data-slick='{"arrows": false}'>
                         @forelse ($bannaers as $bannaer )
-                            <div class="slider_item set-bg-image" data-background="{{asset('uploads/banners_photos')}}/{{$bannaer->product_banner_photo}}">
+                            <div class="slider_item set-bg-image" data-background="{{asset('uploads/banner_photos')}}/{{$bannaer->product_banner_photo}}">
                                 <div class="slider_content">
                                     <h3 class="small_title" data-animation="fadeInUp2" data-delay=".2s">{{App\Models\Category::find($bannaer->category_id)->category_name}}</h3>
                                     <h4 class="big_title" data-animation="fadeInUp2" data-delay=".4s">{{$bannaer->product_name}}  <span>{{$bannaer->product_work}}</span></h4>
                                     <p data-animation="fadeInUp2" data-delay=".6s">{{$bannaer->product_short_breff}}</p>
                                     <div class="item_price" data-animation="fadeInUp2" data-delay=".6s">
-                                        @if ($bannaer->product_regular_price)
-                                            <del>{{$bannaer->product_regular_price > $bannaer->product_discounted_price}}</del>
+                                        @if ($bannaer->product_regular_price > $bannaer->product_discounted_price)
+                                            <del>৳{{ $bannaer->product_regular_price }}</del>
                                         @endif
-                                        <span class="sale_price">{{$bannaer->product_discounted_price}}</span>
+                                        <span class="sale_price">৳{{$bannaer->product_discounted_price}}</span>
                                     </div>
                                     <a class="btn btn_primary" href="{{url('category/wise/product')}}/{{$bannaer->category_id}}" data-animation="fadeInUp2" data-delay=".8s">Start Buying</a>
                                 </div>
