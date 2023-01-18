@@ -17,16 +17,12 @@
                         <button class="btn btn-sm btn-primary" >
                             <span class="badge text-white bg-primary">Total:{{$banners->count()}}</span>
                         </button>
-                        {{-- @if (!$contacts->where('status','read')->count()==0)
+                        @if (!$banners->count()==0)
                             <button class="btn btn-sm btn-info" >
-                                <span class="badge text-white bg-info">Readed:{{$contacts->where('status','read')->count()}}</span>
+                                <span class="badge text-white bg-info">Readed:{{$banners->count()}}</span>
                             </button>
                         @endif
-                        @if (!$contacts->where('status','unread')->count()==0)
-                            <button class="btn btn-sm btn-warning" >
-                                <span class="badge text-white bg-warning">Unread:{{$contacts->where('status','unread')->count()}}</span>
-                            </button>
-                        @endif --}}
+
                     </div>
 
                     <div class="card-body">

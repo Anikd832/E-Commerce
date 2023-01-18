@@ -38,7 +38,7 @@
                                         {{session('discount_e')}}
                                     </div>
                                 @endif --}}
-                                <form action="{{url('banner/insert')}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{url('banner/update')}}/" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Category</label>
@@ -50,27 +50,27 @@
                                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
                                             </select>
-                                            @error('category_id')
+                                            {{-- @error('category_id')
                                                 <span class="text-danger">{{$message}}</span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Banner Photo</label>
                                         <div class="col-sm-8">
                                             <input type="file" class="form-control" name="product_banner_photo" value="">
-                                            @error('product_banner_photo')
+                                            {{-- @error('product_banner_photo')
                                                 <span class="text-danger">{{$message}}</span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-4">Product Name</div>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control @error('product_name') is-invalid @enderror" placeholder="Product Name" name="product_name">
-                                            @error('product_name')
+                                            {{-- @error('product_name')
                                                 <span class="text-danger">{{$message}}</span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -89,9 +89,9 @@
                                         <label class="col-sm-4 col-form-label">Product Regular Price</label>
                                         <div class="col-sm-8">
                                             <input type="number" class="form-control @error('product_regular_price') is-invalid @enderror" placeholder="Product Regular Price" name="product_regular_price" value="">
-                                            @error('product_regular_price')
+                                            {{-- @error('product_regular_price')
                                                 <span class="text-danger">{{$message}}</span>
-                                            @enderror
+                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">

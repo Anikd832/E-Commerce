@@ -77,6 +77,6 @@ Route::post('/product/index/insert', [ProductController::class, 'productinsert']
 Route::get('banner/index',[BannerController::class, 'banner']);
 Route::post('banner/insert',[BannerController::class, 'insert']);
 Route::get('banner/delete/{id}',[BannerController::class, 'delete']);
-Route::post('banner/edit/{id}',[BannerController::class, 'edit']);
+Route::get('banner/edit/{id}',[BannerController::class, 'edit']);
 Route::post('banner/update/{id}',[BannerController::class, 'update']);
 

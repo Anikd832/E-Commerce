@@ -76,7 +76,7 @@ class BannerController extends Controller
             'created_at'=>Carbon::now(),
         ]);
         if($request->hasFile('product_banner_photo')){
-            
+
             $banner_photo=$request->file('product_banner_photo');
             $new_name=Str::slug($request->product_name)."-".$request->category_id.".".$banner_photo->getClientOriginalExtension();
             $upload_link=base_path('public/uploads/banner_photos/'.$new_name);
