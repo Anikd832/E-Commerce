@@ -52,10 +52,12 @@ class BannerController extends Controller
         ]);
         return back()->with('banner_add_s','Banner Added Successfuly!!');
     }
-    public function edit($id ){
+    public function edit($id){
         $categories=Category::all();
-        $category=Category::find($id);
-        return view('dashboard.banner.edit',compact('categories','category'));
+        // $category=Category::all();
+        $banner=Banner::find($id);
+        // return ($category);
+        return view('dashboard.banner.edit',compact('categories','banner'));
     }
     public function update(Request $request,$id){
 

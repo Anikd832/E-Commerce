@@ -38,14 +38,14 @@
                                         {{session('discount_e')}}
                                     </div>
                                 @endif --}}
-                                <form action="{{url('banner/update')}}/{{$category->id}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{url('banner/update')}}/{{$banner->id}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Category</label>
                                         <div class="col-sm-8">
                                             {{-- <input type="text" class="form-control" placeholder="Product Category" name="category_id" value=""> --}}
                                             <select name="category_id" class="form-control">
-                                                <option value="">--Select A Category--</option>
+                                                <option value="">--{{App\Models\Category::find($banner->category_id)->category_name}}--</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
