@@ -10,9 +10,6 @@
             </ol>
         </div>
         <div class="row justify-content-center">
-            {{-- <div class="col-md-7">
-
-            </div> --}}
             <div class="col-md-5">
                 <div class="card ">
                     <div class="card-header d-inline">
@@ -26,78 +23,59 @@
                                         {{session('brand_add_suc')}}
                                     </div>
                                 @endif
-                                {{-- @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{$error}}</li>
-                                        @endforeach
-                                    </div>
-                                @endif
-                                @if (session('discount_e'))
-                                    <div class="alert alert-danger">
-                                        {{session('discount_e')}}
-                                    </div>
-                                @endif --}}
                                 <form action="{{url('banner/update')}}/{{$banner->id}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Category</label>
                                         <div class="col-sm-8">
-                                            {{-- <input type="text" class="form-control" placeholder="Product Category" name="category_id" value=""> --}}
                                             <select name="category_id" class="form-control">
                                                 <option value="">--{{App\Models\Category::find($banner->category_id)->category_name}}--</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
                                             </select>
-                                            {{-- @error('category_id')
-                                                <span class="text-danger">{{$message}}</span>
-                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">Product Banner Photo</label>
+                                        <label class="col-sm-4 col-form-label">Current Banner photo</label>
+                                        <div class="col-sm-8">
+                                            <img width="100" src="{{asset('uploads/banner_photos')}}/{{$banner->product_banner_photo}}" alt="not found">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">New Banner Photo</label>
                                         <div class="col-sm-8">
                                             <input type="file" class="form-control" name="product_banner_photo" value="">
-                                            {{-- @error('product_banner_photo')
-                                                <span class="text-danger">{{$message}}</span>
-                                            @enderror --}}
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-4">Product Name</div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control @error('product_name') is-invalid @enderror" placeholder="Product Name" name="product_name">
-                                            {{-- @error('product_name')
-                                                <span class="text-danger">{{$message}}</span>
-                                            @enderror --}}
+                                            <input type="text" class="form-control" placeholder="Product Name" name="product_name" value="{{$banner->product_name}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Work</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" placeholder="Product Work" name="product_work" value="{{old('product_work')}}">
+                                            <input type="text" class="form-control" placeholder="Product Work" name="product_work" value="{{$banner->product_work}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Short Breff</label>
                                         <div class="col-sm-8">
-                                            <textarea  id="product_short_breff" type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{old('product_short_breff')}}"></textarea>
+                                            <textarea  id="product_short_breff" type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{$banner->product_short_breff}}"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Regular Price</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control @error('product_regular_price') is-invalid @enderror" placeholder="Product Regular Price" name="product_regular_price" value="">
-                                            {{-- @error('product_regular_price')
-                                                <span class="text-danger">{{$message}}</span>
-                                            @enderror --}}
+                                            <input type="number" class="form-control" placeholder="Product Regular Price" name="product_regular_price" value="{{$banner->product_regular_price}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Discounted price</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" placeholder="Product Discounted Price" name="product_discounted_price" value="">
+                                            <input type="number" class="form-control" placeholder="Product Discounted Price" name="product_discounted_price" value="{{$banner->product_discounted_price}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
