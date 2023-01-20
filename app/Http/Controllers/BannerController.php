@@ -54,7 +54,7 @@ class BannerController extends Controller
     }
     public function edit($id){
         $categories=Category::all();
-        // $category=Category::all();
+        $category=Category::all();
         $banner=Banner::find($id);
         // return ($category);
         return view('dashboard.banner.edit',compact('categories','banner'));
