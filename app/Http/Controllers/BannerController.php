@@ -53,14 +53,15 @@ class BannerController extends Controller
         return back()->with('banner_add_s','Banner Added Successfuly!!');
     }
     public function edit($id){
+        $id=base64_decode($id);
         $categories=Category::all();
-        $category=Category::all();
         $banner=Banner::find($id);
+        $category=Category::find($banner->category_id)->category_name;
         // return ($category);
-        return view('dashboard.banner.edit',compact('categories','banner'));
+        return view('dashboard.banner.edit',compact('categories','banner','category'));
     }
     public function update(Request $request,$id){
-
+        $id=base64_decode($id);
         if(!$request->product_discounted_price){
             $product_discounted_price= $request->product_regular_price;
         }
@@ -70,6 +71,7 @@ class BannerController extends Controller
         else{
             $product_discounted_price=$request->product_discounted_price;
         }
+        // Banner::find($request->update_id)->update([
         Banner::find($id)->update([
             'category_id'=>$request->category_id,
             'product_name'=>$request->product_name,
@@ -77,9 +79,11 @@ class BannerController extends Controller
             'product_short_breff'=>$request->product_short_breff,
             'product_regular_price'=>$request->product_regular_price,
             'product_discounted_price'=>$product_discounted_price,
-            'created_at'=>Carbon::now(),
         ]);
         if($request->hasFile('product_banner_photo')){
+            $d_banner_photo=Banner::find($id)->product_banner_photo;
+            $delete_link=base_path('public/uploads/banner_photos/'.$d_banner_photo);
+            unlink($delete_link);
 
             $banner_photo=$request->file('product_banner_photo');
             $new_name=Str::slug($request->product_name)."-".$request->category_id.".".$banner_photo->getClientOriginalExtension();
@@ -89,7 +93,7 @@ class BannerController extends Controller
                 'product_banner_photo'=>$new_name,
             ]);
         }
-        return back()->with('banner_up_s','Banner Added Successfuly!!');
+        return back()->with('banner_up_suc','Banner Added Successfuly!!');
     }
     public function delete($id){
         $d_banner_photo=Banner::find($id)->product_banner_photo;

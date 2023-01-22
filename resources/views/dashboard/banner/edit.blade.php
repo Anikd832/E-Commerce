@@ -18,18 +18,25 @@
                     <div class="card-body">
                         <div class="table">
                             <div class="basic-form">
-                                @if (session('brand_up_suc'))
+                                @if (session('banner_up_suc'))
                                     <div class="alert alert-success">
-                                        {{session('brand_add_suc')}}
+                                        {{session('banner_up_suc')}}
                                     </div>
                                 @endif
-                                <form action="{{url('banner/update')}}/{{$banner->id}}" method="POST" enctype="multipart/form-data">
+                                @if (session('discount_e'))
+                                    <div class="alert alert-danger">
+                                        {{session('discount_e')}}
+                                    </div>
+                                @endif
+                                <form action="{{url('banner/update')}}/{{base64_encode($banner->id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                    {{-- <input type="text" name="update_id" value="{{base64_encode($banner->id)}}"> --}}
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Category</label>
                                         <div class="col-sm-8">
                                             <select name="category_id" class="form-control">
-                                                <option value="">--{{App\Models\Category::find($banner->category_id)->category_name}}--</option>
+                                                {{-- <option value="">--{{App\Models\Category::find($banner->category_id)->category_name}}--</option> --}}
+                                                <option value="{{$banner->category_id}}">--{{$category}}--</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                                                 @endforeach
@@ -63,7 +70,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Product Short Breff</label>
                                         <div class="col-sm-8">
-                                            <textarea  id="product_short_breff" type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{$banner->product_short_breff}}"></textarea>
+                                            <textarea  id="product_short_breff" type="text" class="form-control" placeholder="Product Short Breff" name="product_short_breff" value="{{$banner->product_short_breff}}">{{$banner->product_short_breff}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
